@@ -1,0 +1,67 @@
+# =====================================
+# Node / TypeScript
+# =====================================
+
+# Dependências
+node_modules/
+package-lock.json
+
+# Build / transpiled JS
+dist/
+build/
+out/
+
+# Arquivos gerados pelo TS
+*.js
+*.js.map
+*.d.ts
+
+# Cache do TypeScript
+*.tsbuildinfo
+
+# Ambiente
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# =====================================
+# Banco de Dados (PostgreSQL)
+# =====================================
+
+# Ignorar dumps de banco
+*.sql
+*.pgsql
+*.dump
+*.backup
+
+# Arquivos de configuração locais
+pgdata/
+postgres-data/
+*.pgpass
+
+# =====================================
+# Ferramentas diversas
+# =====================================
+
+# VSCode
+.vscode/
+.history/
+
+# IDE JetBrains
+.idea/
+
+# Testes temporários
+tmp/
+temp/
+*.log
+

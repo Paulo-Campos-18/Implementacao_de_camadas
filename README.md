@@ -23,7 +23,7 @@
 <li> No temrinal teste os comandos disponíveis.
 </ol>
 
-### Execução
+### Execução (no terminal)
 <ol>
 <li> Para adicionar um compromisso: <code>npx ts-node add 'descrição' 'data' 'hora_inicio' 'hora_fim'</code> (data no formato -> dd/mm/yyyy e inicio e fim ->  hh:mm)
 <li> Para listar os  compromissos: <code>npx ts-node main.ts list</code>

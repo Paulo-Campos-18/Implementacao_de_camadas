@@ -28,7 +28,7 @@
 <ol>
 <li> Para adicionar um compromisso: <code>npx ts-node main.ts add 'descrição' 'data' 'hora_inicio' 'hora_fim'</code> (data no formato -> dd/mm/yyyy e inicio e fim ->  hh:mm)
 <li> Para listar os  compromissos: <code>npx ts-node main.ts list</code>
-<li>Para obter mais exemplos: <code>npx ts-code main.ts help</code>
+<li>Para obter mais exemplos: <code>npx ts-node main.ts help</code>
 </ol>
     
 

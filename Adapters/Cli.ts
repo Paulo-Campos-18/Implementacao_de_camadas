@@ -63,7 +63,7 @@ export class Cli {
             console.log("Para adicionar um compromisso: npx ts-node main.ts add 'descrição' 'data' 'hora_inicio' 'hora_fim' (data no formato -> dd/mm/yyyy e inicio e fim ->  hh:mm) ")
             console.log("Para listar os  compromissos: npx ts-node main.ts list.\n ")
             console.log("A descrição, data, hora_inicio e hora_fim devem estar dentro de aspas simples ou duplas. ")
-            console.log("Exemplo: 'Reunião' '24/11/2025' '15:35:00' '17:00:00'\n")
+            console.log("Exemplo: 'Reunião' '24/11/2025' '15:35' '17:00'\n")
 
         } else {
             console.log("Comando ou parâmetros estão incorretos !")

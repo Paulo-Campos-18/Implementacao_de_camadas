@@ -14,8 +14,5 @@ export class PostgresRepo implements IAppointmentRepo{
             [inicio,fim,desc]    
         ) 
         return "Sucesso na inserção" 
-    }
-    
+    }    
 }
-//let c : PostgresRepo = new PostgresRepo();
-//c.Adicionar("Terminando o trabalho", new Date("2025/11/24 14:05:55"),new Date("2025/11/24 15:59:59") )

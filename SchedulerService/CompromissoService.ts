@@ -1,7 +1,6 @@
 import type { IDataService } from "../Interfaces/DataServices";
 import { IAppointmentRepo } from "../Interfaces/IAppointmentRepo";
-import { parse, format } from "date-fns";
-import { fromZonedTime } from "date-fns-tz";
+import { format } from "date-fns";
 import { IObjFromBd } from "../Interfaces/IObjFromBd"
 
 
@@ -25,23 +24,23 @@ export class CompromissoService implements IDataService {
             if (linha) {
                 const inicioDb = new Date(linha.inicio);
                 const fimDb = new Date(linha.fim);
-                
-                if (inicioDb.getTime() === inicio.getTime()||fimDb.getTime() === fim.getTime()) {
-                    return true;
+
+                if (format(inicioDb, "dd/MM/yyyy") === format(inicio, "dd/MM/yyyy")) {
+
+                    if (inicio < fimDb && fim > inicioDb) {
+                        return true;
+                    }
                 }
-            }else{
-                return false;
             }
         }
-
 
         return false;
     }
     async Adicionar(desc: string, inicio: Date, fim: Date): Promise<string> {
         if (!await this.VerificarDuplicata(desc, inicio, fim)) {
-            return this.repo.Adicionar(desc,inicio,fim)
-        }else{
-            return "Falha na inserção, compromissos em conflito"
+            return this.repo.Adicionar(desc, inicio, fim)
+        } else {
+            return "Falha na inserção, compromissos em conflito."
         }
     }
 

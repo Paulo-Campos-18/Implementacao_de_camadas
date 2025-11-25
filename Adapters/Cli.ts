@@ -17,7 +17,7 @@ export class Cli {
     constructor(private service: IDataService) { }
 
     async Run() {
-        let mensagemDuvida = "Em caso de dúvida tente 'npx ts-code main help' ver exemplos"
+        let mensagemDuvida = "Em caso de dúvida tente 'npx ts-code main help' para ver exemplos"
 
         if (!this.args[0]) {
             console.log("É preciso utilizar um comando um comando")
@@ -39,19 +39,18 @@ export class Cli {
         }
         else if (this.comando == "list" && !this.args[1]) {
             const resultado = await this.service.Listar();
+            console.log("----------------------------------------------")
             for (let i = 0; i < resultado.length; i++) {
                 const item = resultado[i]
                 //Esse if faz com que o ts pare de reclamar que o item pode ser undefined 
                 if(!item)continue 
                 
-
                 console.log(
-                    "--------------------------------------\n" + 
                     "Descrição: " + item.descricao + "\n" + 
                     "Data: " + format(toZonedTime(item.inicio,"America/Sao_Paulo"), "dd/MM/yyyy") + "\n" +
                     "Hora inicio: " + format(toZonedTime(item.inicio,"America/Sao_Paulo"),"HH:mm") + "\n"+
                     "Hora fim: " + format(toZonedTime(item.fim,"America/Sao_Paulo"),"HH:mm") + "\n"+
-                    "\n"
+                    "----------------------------------------------"
 
 
                 )
@@ -59,10 +58,10 @@ export class Cli {
             }
 
         } else if (this.comando == "help") {
+            console.log("Para adicionar um compromisso: npx ts-node add 'descrição' 'data' 'hora_inicio' 'hora_fim' (data no formato -> dd/mm/yyyy e inicio e fim ->  hh:mm) ")
+            console.log("Para listar os  compromissos: npx ts-node list.\n ")
             console.log("\nA descrição, data, hora_inicio e hora_fim devem estar dentro de aspas simples ou duplas. ")
             console.log("Exemplo: 'Reunião' '24/11/2025' '15:35:00' '17:00:00'\n")
-            console.log("Para adicionar um compromisso: npx ts-node add 'descrição' 'data' 'hora_inicio' 'hora_fim' (data no formato -> dd/mm/yyyy e inicio e fim ->  hh:mm:ss) ")
-            console.log("Para listar os  compromissos: npx ts-node list.\n ")
 
         } else {
             console.log("Comando ou parâmetros estão incorretos !")
